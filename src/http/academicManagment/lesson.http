@@ -1,0 +1,82 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todas las lecciones (SIN token)
+GET {{baseUrl}}/api/lessons/public
+
+### Obtener una lección por ID (SIN token)
+GET {{baseUrl}}/api/lessons/public/1
+
+### Crear una nueva lección (SIN token)
+POST {{baseUrl}}/api/lessons/public
+Content-Type: application/json
+
+{
+  "title": "Introducción a la Programación",
+  "content": "Conceptos básicos de programación, variables, operadores y estructuras de control.",
+  "status": "ACTIVE",
+  "moduleId": 1
+}
+
+### Actualizar una lección (SIN token)
+PATCH {{baseUrl}}/api/lessons/public/1
+Content-Type: application/json
+
+{
+  "title": "Introducción a la Programación - Actualizada",
+  "content": "Incluye ejemplos prácticos de bucles y funciones.",
+  "status": "ACTIVE",
+  "moduleId": 1
+}
+
+### Eliminar una lección físicamente (SIN token)
+DELETE {{baseUrl}}/api/lessons/public/1
+
+### Eliminar una lección lógicamente (SIN token)
+DELETE {{baseUrl}}/api/lessons/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todas las lecciones (CON token)
+GET {{baseUrl}}/api/lessons
+Authorization: Bearer {{token}}
+
+### Obtener una lección por ID (CON token)
+GET {{baseUrl}}/api/lessons/1
+Authorization: Bearer {{token}}
+
+### Crear una nueva lección (CON token)
+POST {{baseUrl}}/api/lessons
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Introducción a la Programación",
+  "content": "Conceptos básicos de programación, variables, operadores y estructuras de control.",
+  "status": "ACTIVE",
+  "moduleId": 1
+}
+
+### Actualizar una lección (CON token)
+PATCH {{baseUrl}}/api/lessons/151
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Introducción a la Programación - Actualizada",
+  "content": "Incluye ejemplos prácticos de bucles y funciones.",
+  "status": "ACTIVE",
+  "moduleId": 1
+}
+
+### Eliminar una lección físicamente (CON token)
+DELETE {{baseUrl}}/api/lessons/1
+Authorization: Bearer {{token}}
+
+### Eliminar una lección lógicamente (CON token)
+DELETE {{baseUrl}}/api/lessons/1/logic
+Authorization: Bearer {{token}}

@@ -1,0 +1,90 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los cursos (SIN token)
+GET {{baseUrl}}/api/courses/public
+
+### Obtener un curso por ID (SIN token)
+GET {{baseUrl}}/api/courses/public/1
+
+### Crear un nuevo curso (SIN token)
+POST {{baseUrl}}/api/courses/public
+Content-Type: application/json
+
+{
+  "title": "Ingeniería de Software",
+  "description": "Curso de fundamentos y prácticas de ingeniería de software",
+  "startDate": "2025-10-15T08:00:00.000Z",
+  "endDate": "2025-12-20T17:00:00.000Z",
+  "status": "ACTIVE",
+  "teacherId": 1
+}
+
+### Actualizar un curso (SIN token)
+PATCH {{baseUrl}}/api/courses/public/1
+Content-Type: application/json
+
+{
+  "title": "Ingeniería de Software Avanzada",
+  "description": "Incluye temas de arquitectura y testing avanzado",
+  "startDate": "2025-10-15T08:00:00.000Z",
+  "endDate": "2025-12-22T17:00:00.000Z",
+  "status": "ACTIVE",
+  "teacherId": 1
+}
+
+### Eliminar un curso físicamente (SIN token)
+DELETE {{baseUrl}}/api/courses/public/1
+
+### Eliminar un curso lógicamente (SIN token)
+DELETE {{baseUrl}}/api/courses/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los cursos (CON token)
+GET {{baseUrl}}/api/courses
+Authorization: Bearer {{token}}
+
+### Obtener un curso por ID (CON token)
+GET {{baseUrl}}/api/courses/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo curso (CON token)
+POST {{baseUrl}}/api/courses
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Ingeniería de Software",
+  "description": "Curso de fundamentos y prácticas de ingeniería de software",
+  "startDate": "2025-10-15T08:00:00.000Z",
+  "endDate": "2025-12-20T17:00:00.000Z",
+  "status": "ACTIVE",
+  "teacherId": 1
+}
+
+### Actualizar un curso (CON token)
+PATCH {{baseUrl}}/api/courses/11
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Ingeniería de Software Avanzada",
+  "description": "Incluye temas de arquitectura y testing avanzado",
+  "startDate": "2025-10-15T08:00:00.000Z",
+  "endDate": "2025-12-22T17:00:00.000Z",
+  "status": "ACTIVE",
+  "teacherId": 1
+}
+
+### Eliminar un curso físicamente (CON token)
+DELETE {{baseUrl}}/api/courses/1
+Authorization: Bearer {{token}}
+
+### Eliminar un curso lógicamente (CON token)
+DELETE {{baseUrl}}/api/courses/1/logic
+Authorization: Bearer {{token}}

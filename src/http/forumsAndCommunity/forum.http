@@ -1,0 +1,82 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los forums (SIN token)
+GET {{baseUrl}}/api/forums/public
+
+### Obtener un forum por ID (SIN token)
+GET {{baseUrl}}/api/forums/public/1
+
+### Crear un nuevo forum (SIN token)
+POST {{baseUrl}}/api/forums/public
+Content-Type: application/json
+
+{
+  "title": "Foro de Dudas de Programación",
+  "description": "Espacio para que los estudiantes planteen dudas sobre los contenidos del curso",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Actualizar un forum (SIN token)
+PATCH {{baseUrl}}/api/forums/public/1
+Content-Type: application/json
+
+{
+  "title": "Foro de Dudas de Programación - Actualizado",
+  "description": "Incluye secciones de ejercicios prácticos y soluciones",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Eliminar un forum físicamente (SIN token)
+DELETE {{baseUrl}}/api/forums/public/1
+
+### Eliminar un forum lógicamente (SIN token)
+DELETE {{baseUrl}}/api/forums/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los forums (CON token)
+GET {{baseUrl}}/api/forums
+Authorization: Bearer {{token}}
+
+### Obtener un forum por ID (CON token)
+GET {{baseUrl}}/api/forums/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo forum (CON token)
+POST {{baseUrl}}/api/forums
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Foro de Dudas de Programación",
+  "description": "Espacio para que los estudiantes planteen dudas sobre los contenidos del curso",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Actualizar un forum (CON token)
+PATCH {{baseUrl}}/api/forums/21
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Foro de Dudas de Programación - Actualizado",
+  "description": "Incluye secciones de ejercicios prácticos y soluciones",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Eliminar un forum físicamente (CON token)
+DELETE {{baseUrl}}/api/forums/1
+Authorization: Bearer {{token}}
+
+### Eliminar un forum lógicamente (CON token)
+DELETE {{baseUrl}}/api/forums/1/logic
+Authorization: Bearer {{token}}

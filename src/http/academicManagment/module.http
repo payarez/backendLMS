@@ -1,0 +1,82 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los módulos (SIN token)
+GET {{baseUrl}}/api/modules/public
+
+### Obtener un módulo por ID (SIN token)
+GET {{baseUrl}}/api/modules/public/1
+
+### Crear un nuevo módulo (SIN token)
+POST {{baseUrl}}/api/modules/public
+Content-Type: application/json
+
+{
+  "title": "Módulo de Programación Básica",
+  "description": "Este módulo cubre conceptos fundamentales de programación",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Actualizar un módulo (SIN token)
+PATCH {{baseUrl}}/api/modules/public/1
+Content-Type: application/json
+
+{
+  "title": "Módulo de Programación Básica - Actualizado",
+  "description": "Incluye ejercicios prácticos de programación y resolución de problemas",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Eliminar un módulo físicamente (SIN token)
+DELETE {{baseUrl}}/api/modules/public/1
+
+### Eliminar un módulo lógicamente (SIN token)
+DELETE {{baseUrl}}/api/modules/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los módulos (CON token)
+GET {{baseUrl}}/api/modules
+Authorization: Bearer {{token}}
+
+### Obtener un módulo por ID (CON token)
+GET {{baseUrl}}/api/modules/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo módulo (CON token)
+POST {{baseUrl}}/api/modules
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Módulo de Programación Básica",
+  "description": "Este módulo cubre conceptos fundamentales de programación",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Actualizar un módulo (CON token)
+PATCH {{baseUrl}}/api/modules/31
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Módulo de Programación Básica - Actualizado",
+  "description": "Incluye ejercicios prácticos de programación y resolución de problemas",
+  "status": "ACTIVE",
+  "courseId": 1
+}
+
+### Eliminar un módulo físicamente (CON token)
+DELETE {{baseUrl}}/api/modules/1
+Authorization: Bearer {{token}}
+
+### Eliminar un módulo lógicamente (CON token)
+DELETE {{baseUrl}}/api/modules/1/logic
+Authorization: Bearer {{token}}

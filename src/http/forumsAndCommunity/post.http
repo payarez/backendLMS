@@ -1,0 +1,86 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los posts (SIN token)
+GET {{baseUrl}}/api/posts/public
+
+### Obtener un post por ID (SIN token)
+GET {{baseUrl}}/api/posts/public/1
+
+### Crear un nuevo post (SIN token)
+POST {{baseUrl}}/api/posts/public
+Content-Type: application/json
+
+{
+  "content": "Pregunta sobre la lección de bucles",
+  "date": "2025-10-11T10:00:00.000Z",
+  "status": "ACTIVE",
+  "forumId": 1,
+  "studentId": 1
+}
+
+### Actualizar un post (SIN token)
+PATCH {{baseUrl}}/api/posts/public/1
+Content-Type: application/json
+
+{
+  "content": "Pregunta sobre bucles y funciones",
+  "date": "2025-10-12T15:30:00.000Z",
+  "status": "ACTIVE",
+  "forumId": 1,
+  "studentId": 1
+}
+
+### Eliminar un post físicamente (SIN token)
+DELETE {{baseUrl}}/api/posts/public/1
+
+### Eliminar un post lógicamente (SIN token)
+DELETE {{baseUrl}}/api/posts/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los posts (CON token)
+GET {{baseUrl}}/api/posts
+Authorization: Bearer {{token}}
+
+### Obtener un post por ID (CON token)
+GET {{baseUrl}}/api/posts/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo post (CON token)
+POST {{baseUrl}}/api/posts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "content": "Pregunta sobre la lección de bucles",
+  "date": "2025-10-11T10:00:00.000Z",
+  "status": "ACTIVE",
+  "forumId": 1,
+  "studentId": 1
+}
+
+### Actualizar un post (CON token)
+PATCH {{baseUrl}}/api/posts/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "content": "Pregunta sobre bucles y funciones",
+  "date": "2025-10-12T15:30:00.000Z",
+  "status": "ACTIVE",
+  "forumId": 1,
+  "studentId": 25
+}
+
+### Eliminar un post físicamente (CON token)
+DELETE {{baseUrl}}/api/posts/1
+Authorization: Bearer {{token}}
+
+### Eliminar un post lógicamente (CON token)
+DELETE {{baseUrl}}/api/posts/1/logic
+Authorization: Bearer {{token}}

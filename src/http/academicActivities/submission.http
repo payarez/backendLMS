@@ -1,0 +1,86 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todas las submissions (SIN token)
+GET {{baseUrl}}/api/submissions/public
+
+### Obtener una submission por ID (SIN token)
+GET {{baseUrl}}/api/submissions/public/1
+
+### Crear una nueva submission (SIN token)
+POST {{baseUrl}}/api/submissions/public
+Content-Type: application/json
+
+{
+  "content": "Entrega del proyecto final",
+  "submittedAt": "2025-10-11T10:00:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "lessonId": 1
+}
+
+### Actualizar una submission (SIN token)
+PATCH {{baseUrl}}/api/submissions/public/1
+Content-Type: application/json
+
+{
+  "content": "Entrega final corregida del proyecto",
+  "submittedAt": "2025-10-12T15:30:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "lessonId": 1
+}
+
+### Eliminar una submission físicamente (SIN token)
+DELETE {{baseUrl}}/api/submissions/public/1
+
+### Eliminar una submission lógicamente (SIN token)
+DELETE {{baseUrl}}/api/submissions/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todas las submissions (CON token)
+GET {{baseUrl}}/api/submissions
+Authorization: Bearer {{token}}
+
+### Obtener una submission por ID (CON token)
+GET {{baseUrl}}/api/submissions/1
+Authorization: Bearer {{token}}
+
+### Crear una nueva submission (CON token)
+POST {{baseUrl}}/api/submissions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "content": "Entrega del proyecto final",
+  "submittedAt": "2025-10-11T10:00:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "lessonId": 1
+}
+
+### Actualizar una submission (CON token)
+PATCH {{baseUrl}}/api/submissions/451
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "content": "Entrega final corregida del proyecto",
+  "submittedAt": "2025-10-12T15:30:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "lessonId": 1
+}
+
+### Eliminar una submission físicamente (CON token)
+DELETE {{baseUrl}}/api/submissions/1
+Authorization: Bearer {{token}}
+
+### Eliminar una submission lógicamente (CON token)
+DELETE {{baseUrl}}/api/submissions/1/logic
+Authorization: Bearer {{token}}

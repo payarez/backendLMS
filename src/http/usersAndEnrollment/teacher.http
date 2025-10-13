@@ -1,0 +1,90 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzIzMzA2LCJleHAiOjE3NjAzMjM5MDZ9.d-SBx80heJ0Zr5vNjdnHG2sLNwx-OcueJlc2Q12gZEw
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los profesores (SIN token)
+GET {{baseUrl}}/api/teachers/public
+
+### Obtener un profesor por ID (SIN token)
+GET {{baseUrl}}/api/teachers/public/11
+
+### Crear un nuevo profesor (SIN token)
+POST {{baseUrl}}/api/teachers/public
+Content-Type: application/json
+
+{
+  "name": "Carlos Díaz",
+  "subject": "Matemáticas",
+  "email": "carlos.diaz@uniguajira.edu.co",
+  "phone": "3004567890",
+  "registration_date": "2025-10-11T00:00:00.000Z",
+  "status": "ACTIVE"
+}
+
+### Actualizar un profesor (SIN token)
+PATCH {{baseUrl}}/api/teachers/public/1
+Content-Type: application/json
+
+{
+  "name": "Carlos Díaz Actualizado",
+  "subject": "Estadística",
+  "email": "carlos.diaz.actualizado@uniguajira.edu.co",
+  "phone": "3009876543",
+  "registration_date": "2025-10-12T00:00:00.000Z",
+  "status": "ACTIVE"
+}
+
+### Eliminar un profesor físicamente (SIN token)
+DELETE {{baseUrl}}/api/teachers/public/1
+
+### Eliminar un profesor lógicamente (SIN token)
+DELETE {{baseUrl}}/api/teachers/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los profesores (CON token)
+GET {{baseUrl}}/api/teachers
+Authorization: Bearer {{token}}
+
+### Obtener un profesor por ID (CON token)
+GET {{baseUrl}}/api/teachers/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo profesor (CON token)
+POST {{baseUrl}}/api/teachers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Leonel López",
+  "subject": "Seriedad",
+  "email": "ana.lopez@uniguajira.edu.co",
+  "phone": "3001234567",
+  "registration_date": "2025-10-15T00:00:00.000Z",
+  "status": "ACTIVE"
+}
+
+### Actualizar un profesor (CON token)
+PATCH {{baseUrl}}/api/teachers/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Ana López Sofii",
+  "subject": "Física Avanzada",
+  "email": "ana.lopez.actualizada@uniguajira.edu.co",
+  "phone": "3007654321",
+  "registration_date": "2025-10-16T00:00:00.000Z",
+  "status": "ACTIVE"
+}
+
+### Eliminar un profesor físicamente (CON token)
+DELETE {{baseUrl}}/api/teachers/1
+Authorization: Bearer {{token}}
+
+### Eliminar un profesor lógicamente (CON token)
+DELETE {{baseUrl}}/api/teachers/1/logic
+Authorization: Bearer {{token}}

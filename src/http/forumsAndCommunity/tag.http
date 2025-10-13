@@ -1,0 +1,74 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los tags (SIN token)
+GET {{baseUrl}}/api/tags/public
+
+### Obtener un tag por ID (SIN token)
+GET {{baseUrl}}/api/tags/public/1
+
+### Crear un nuevo tag (SIN token)
+POST {{baseUrl}}/api/tags/public
+Content-Type: application/json
+
+{
+  "name": "Programación",
+  "status": "ACTIVE"
+}
+
+### Actualizar un tag (SIN token)
+PATCH {{baseUrl}}/api/tags/public/1
+Content-Type: application/json
+
+{
+  "name": "Programación Avanzada",
+  "status": "ACTIVE"
+}
+
+### Eliminar un tag físicamente (SIN token)
+DELETE {{baseUrl}}/api/tags/public/1
+
+### Eliminar un tag lógicamente (SIN token)
+DELETE {{baseUrl}}/api/tags/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los tags (CON token)
+GET {{baseUrl}}/api/tags
+Authorization: Bearer {{token}}
+
+### Obtener un tag por ID (CON token)
+GET {{baseUrl}}/api/tags/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo tag (CON token)
+POST {{baseUrl}}/api/tags
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Programación",
+  "status": "ACTIVE"
+}
+
+### Actualizar un tag (CON token)
+PATCH {{baseUrl}}/api/tags/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Programación Avanzada",
+  "status": "ACTIVE"
+}
+
+### Eliminar un tag físicamente (CON token)
+DELETE {{baseUrl}}/api/tags/1
+Authorization: Bearer {{token}}
+
+### Eliminar un tag lógicamente (CON token)
+DELETE {{baseUrl}}/api/tags/1/logic
+Authorization: Bearer {{token}}

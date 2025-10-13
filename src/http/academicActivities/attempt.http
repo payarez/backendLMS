@@ -1,0 +1,86 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los intentos (SIN token)
+GET {{baseUrl}}/api/attempts/public
+
+### Obtener un intento por ID (SIN token)
+GET {{baseUrl}}/api/attempts/public/1
+
+### Crear un nuevo intento (SIN token)
+POST {{baseUrl}}/api/attempts/public
+Content-Type: application/json
+
+{
+  "attemptNumber": 1,
+  "date": "2025-10-11T10:00:00.000Z",
+  "result": "Intento satisfactorio con observaciones",
+  "status": "ACTIVE",
+  "lessonId": 1
+}
+
+### Actualizar un intento (SIN token)
+PATCH {{baseUrl}}/api/attempts/public/1
+Content-Type: application/json
+
+{
+  "attemptNumber": 2,
+  "date": "2025-10-12T15:30:00.000Z",
+  "result": "Reintento con mejor calificación",
+  "status": "ACTIVE",
+  "lessonId": 1
+}
+
+### Eliminar un intento físicamente (SIN token)
+DELETE {{baseUrl}}/api/attempts/public/1
+
+### Eliminar un intento lógicamente (SIN token)
+DELETE {{baseUrl}}/api/attempts/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los intentos (CON token)
+GET {{baseUrl}}/api/attempts
+Authorization: Bearer {{token}}
+
+### Obtener un intento por ID (CON token)
+GET {{baseUrl}}/api/attempts/299
+Authorization: Bearer {{token}}
+
+### Crear un nuevo intento (CON token)
+POST {{baseUrl}}/api/attempts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "attemptNumber": 1,
+  "date": "2025-10-11T10:00:00.000Z",
+  "result": "Intento satisfactorio con observaciones",
+  "status": "ACTIVE",
+  "lessonId": 1
+}
+
+### Actualizar un intento (CON token)
+PATCH {{baseUrl}}/api/attempts/301
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "attemptNumber": 2,
+  "date": "2025-10-12T15:30:00.000Z",
+  "result": "Reintento con mejor calificación",
+  "status": "ACTIVE",
+  "lessonId": 1
+}
+
+### Eliminar un intento físicamente (CON token)
+DELETE {{baseUrl}}/api/attempts/1
+Authorization: Bearer {{token}}
+
+### Eliminar un intento lógicamente (CON token)
+DELETE {{baseUrl}}/api/attempts/1/logic
+Authorization: Bearer {{token}}

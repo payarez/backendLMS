@@ -1,0 +1,78 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los course-tags (SIN token)
+GET {{baseUrl}}/api/course-tags/public
+
+### Obtener un course-tag por ID (SIN token)
+GET {{baseUrl}}/api/course-tags/public/1
+
+### Crear un nuevo course-tag (SIN token)
+POST {{baseUrl}}/api/course-tags/public
+Content-Type: application/json
+
+{
+  "status": "ACTIVE",
+  "courseId": 1,
+  "tagId": 2
+}
+
+### Actualizar un course-tag (SIN token)
+PATCH {{baseUrl}}/api/course-tags/public/1
+Content-Type: application/json
+
+{
+  "status": "ACTIVE",
+  "courseId": 1,
+  "tagId": 3
+}
+
+### Eliminar un course-tag físicamente (SIN token)
+DELETE {{baseUrl}}/api/course-tags/public/1
+
+### Eliminar un course-tag lógicamente (SIN token)
+DELETE {{baseUrl}}/api/course-tags/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los course-tags (CON token)
+GET {{baseUrl}}/api/course-tags
+Authorization: Bearer {{token}}
+
+### Obtener un course-tag por ID (CON token)
+GET {{baseUrl}}/api/course-tags/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo course-tag (CON token)
+POST {{baseUrl}}/api/course-tags
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "ACTIVE",
+  "courseId": 1,
+  "tagId": 2
+}
+
+### Actualizar un course-tag (CON token)
+PATCH {{baseUrl}}/api/course-tags/21
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "ACTIVE",
+  "courseId": 1,
+  "tagId": 3
+}
+
+### Eliminar un course-tag físicamente (CON token)
+DELETE {{baseUrl}}/api/course-tags/1
+Authorization: Bearer {{token}}
+
+### Eliminar un course-tag lógicamente (CON token)
+DELETE {{baseUrl}}/api/course-tags/1/logic
+Authorization: Bearer {{token}}

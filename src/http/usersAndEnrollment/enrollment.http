@@ -1,0 +1,82 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5ODgxLCJleHAiOjE3NjAzMzA0ODF9.hGurV8yLYImrxdxkbn4AujJCY1rA7oGXEDKY2x4i0aE
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todas las inscripciones (SIN token)
+GET {{baseUrl}}/api/enrollments/public
+
+### Obtener una inscripción por ID (SIN token)
+GET {{baseUrl}}/api/enrollments/public/1
+
+### Crear una nueva inscripción (SIN token)
+POST {{baseUrl}}/api/enrollments/public
+Content-Type: application/json
+
+{
+  "date": "2025-10-11T10:00:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "courseId": 2
+}
+
+### Actualizar una inscripción (SIN token)
+PATCH {{baseUrl}}/api/enrollments/public/1
+Content-Type: application/json
+
+{
+  "date": "2025-10-15T10:00:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "courseId": 2
+}
+
+### Eliminar una inscripción físicamente (SIN token)
+DELETE {{baseUrl}}/api/enrollments/public/1
+
+### Eliminar una inscripción lógicamente (SIN token)
+DELETE {{baseUrl}}/api/enrollments/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todas las inscripciones (CON token)
+GET {{baseUrl}}/api/enrollments
+Authorization: Bearer {{token}}
+
+### Obtener una inscripción por ID (CON token)
+GET {{baseUrl}}/api/enrollments/1
+Authorization: Bearer {{token}}
+
+### Crear una nueva inscripción (CON token)
+POST {{baseUrl}}/api/enrollments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "date": "2025-10-11T10:00:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "courseId": 2
+}
+
+### Actualizar una inscripción (CON token)
+PATCH {{baseUrl}}/api/enrollments/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "date": "2025-10-15T10:00:00.000Z",
+  "status": "ACTIVE",
+  "studentId": 1,
+  "courseId": 2
+}
+
+### Eliminar una inscripción físicamente (CON token)
+DELETE {{baseUrl}}/api/enrollments/1
+Authorization: Bearer {{token}}
+
+### Eliminar una inscripción lógicamente (CON token)
+DELETE {{baseUrl}}/api/enrollments/1/logic
+Authorization: Bearer {{token}}

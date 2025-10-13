@@ -1,0 +1,78 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todos los estudiantes (SIN token)
+GET {{baseUrl}}/api/students/public
+
+### Obtener un estudiante por ID (SIN token)
+GET {{baseUrl}}/api/students/public/1
+
+### Crear un nuevo estudiante (SIN token)
+POST {{baseUrl}}/api/students/public
+Content-Type: application/json
+
+{
+  "name": "Andrea Salas",
+  "email": "andrea.salas@uniguajira.edu.co",
+  "status": "ACTIVE"
+}
+
+### Actualizar un estudiante (SIN token)
+PATCH {{baseUrl}}/api/students/public/1
+Content-Type: application/json
+
+{
+  "name": "Andrea Salas Actualizada",
+  "email": "andrea.salas.actualizada@uniguajira.edu.co",
+  "status": "ACTIVE"
+}
+
+### Eliminar un estudiante físicamente (SIN token)
+DELETE {{baseUrl}}/api/students/public/1
+
+### Eliminar un estudiante lógicamente (SIN token)
+DELETE {{baseUrl}}/api/students/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todos los estudiantes (CON token)
+GET {{baseUrl}}/api/students
+Authorization: Bearer {{token}}
+
+### Obtener un estudiante por ID (CON token)
+GET {{baseUrl}}/api/students/1
+Authorization: Bearer {{token}}
+
+### Crear un nuevo estudiante (CON token)
+POST {{baseUrl}}/api/students
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Juan Perez",
+  "email": "juan.perez@uniguajira.edu.co",
+  "status": "ACTIVE"
+}
+
+### Actualizar un estudiante (CON token)
+PATCH {{baseUrl}}/api/students/31
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Juan Perez Actualizado",
+  "email": "juan.perez.actualizado@uniguajira.edu.co",
+  "status": "ACTIVE"
+}
+
+### Eliminar un estudiante físicamente (CON token)
+DELETE {{baseUrl}}/api/students/1
+Authorization: Bearer {{token}}
+
+### Eliminar un estudiante lógicamente (CON token)
+DELETE {{baseUrl}}/api/students/1/logic
+Authorization: Bearer {{token}}

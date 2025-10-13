@@ -1,0 +1,86 @@
+import dotenv from "dotenv";
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@baseUrl = http://localhost:3000
+
+### ================== RUTAS SIN AUTENTICACIÓN ==================
+
+### Obtener todas las evaluaciones (SIN token)
+GET {{baseUrl}}/api/assessments/public
+
+### Obtener una evaluación por ID (SIN token)
+GET {{baseUrl}}/api/assessments/public/1
+
+### Crear una nueva evaluación (SIN token)
+POST {{baseUrl}}/api/assessments/public
+Content-Type: application/json
+
+{
+  "grade": 90,
+  "feedback": "Buen desempeño en el parcial",
+  "date": "2025-10-15T10:00:00.000Z",
+  "status": "ACTIVE",
+  "submissionId": 1
+}
+
+### Actualizar una evaluación (SIN token)
+PATCH {{baseUrl}}/api/assessments/public/1
+Content-Type: application/json
+
+{
+  "grade": 95,
+  "feedback": "Excelente mejora en el parcial",
+  "date": "2025-10-20T10:00:00.000Z",
+  "status": "ACTIVE",
+  "submissionId": 1
+}
+
+### Eliminar una evaluación físicamente (SIN token)
+DELETE {{baseUrl}}/api/assessments/public/1
+
+### Eliminar una evaluación lógicamente (SIN token)
+DELETE {{baseUrl}}/api/assessments/public/1/logic
+
+### ================== RUTAS CON AUTENTICACIÓN ==================
+
+### Obtener todas las evaluaciones (CON token)
+GET {{baseUrl}}/api/assessments
+Authorization: Bearer {{token}}
+
+### Obtener una evaluación por ID (CON token)
+GET {{baseUrl}}/api/assessments/312
+Authorization: Bearer {{token}}
+
+### Crear una nueva evaluación (CON token)
+POST {{baseUrl}}/api/assessments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "grade": 90,
+  "feedback": "Buen desempeño en el parcial",
+  "date": "2025-10-15T10:00:00.000Z",
+  "status": "ACTIVE",
+  "submissionId": 1
+}
+
+### Actualizar una evaluación (CON token)
+PATCH {{baseUrl}}/api/assessments/451
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "grade": 95,
+  "feedback": "Excelente mejora en el parcial",
+  "date": "2025-10-20T10:00:00.000Z",
+  "status": "ACTIVE",
+  "submissionId": 1
+}
+
+### Eliminar una evaluación físicamente (CON token)
+DELETE {{baseUrl}}/api/assessments/1
+Authorization: Bearer {{token}}
+
+### Eliminar una evaluación lógicamente (CON token)
+DELETE {{baseUrl}}/api/assessments/1/logic
+Authorization: Bearer {{token}}
