@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTY2MDkwLCJleHAiOjE3NjA1NjY2OTB9.Gw34y-67Jqg3vV68aZkz8So0qtGCSXiX19zUTUAc8bI
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 GET {{baseUrl}}/api/submissions/public
 
 ### Obtener una submission por ID (SIN token)
-GET {{baseUrl}}/api/submissions/public/1
+GET {{baseUrl}}/api/submissions/public/450
 
 ### Crear una nueva submission (SIN token)
 POST {{baseUrl}}/api/submissions/public
@@ -39,7 +39,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/api/submissions/public/1
 
 ### Eliminar una submission lógicamente (SIN token)
-DELETE {{baseUrl}}/api/submissions/public/1/logic
+DELETE {{baseUrl}}/api/submissions/public/2/logic
 
 ### ================== RUTAS CON AUTENTICACIÓN ==================
 
@@ -48,7 +48,7 @@ GET {{baseUrl}}/api/submissions
 Authorization: Bearer {{token}}
 
 ### Obtener una submission por ID (CON token)
-GET {{baseUrl}}/api/submissions/1
+GET {{baseUrl}}/api/submissions/4
 Authorization: Bearer {{token}}
 
 ### Crear una nueva submission (CON token)
@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Actualizar una submission (CON token)
-PATCH {{baseUrl}}/api/submissions/451
+PATCH {{baseUrl}}/api/submissions/453
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -78,9 +78,9 @@ Content-Type: application/json
 }
 
 ### Eliminar una submission físicamente (CON token)
-DELETE {{baseUrl}}/api/submissions/1
+DELETE {{baseUrl}}/api/submissions/453
 Authorization: Bearer {{token}}
 
 ### Eliminar una submission lógicamente (CON token)
-DELETE {{baseUrl}}/api/submissions/1/logic
+DELETE {{baseUrl}}/api/submissions/3/logic
 Authorization: Bearer {{token}}

@@ -7,7 +7,7 @@ export class AttemptController {
   public async getAllAttempts(req: Request, res: Response) {
     try {
       const attempts: AttemptI[] = await Attempt.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ attempts });
+      res.status(200).json( attempts );
     } catch (error) {
       res.status(500).json({ error: "Error fetching attempts" });
     }

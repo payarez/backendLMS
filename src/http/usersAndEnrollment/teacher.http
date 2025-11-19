@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzIzMzA2LCJleHAiOjE3NjAzMjM5MDZ9.d-SBx80heJ0Zr5vNjdnHG2sLNwx-OcueJlc2Q12gZEw
-@baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzYwNTY4MDIyLCJleHAiOjE3NjA1Njg2MjJ9.DFlyOcOuPgCxva9JlYxoAeSA3US0LUYSJL82kTbf38o
+@baseUrl = http://localhost:4000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
 
@@ -59,32 +59,32 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Leonel López",
+  "name": "Esneider López",
   "subject": "Seriedad",
-  "email": "ana.lopez@uniguajira.edu.co",
+  "email": "esneider.lopez@uniguajira.edu.co",
   "phone": "3001234567",
   "registration_date": "2025-10-15T00:00:00.000Z",
   "status": "ACTIVE"
 }
 
 ### Actualizar un profesor (CON token)
-PATCH {{baseUrl}}/api/teachers/1
+PATCH {{baseUrl}}/api/teachers/13
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Ana López Sofii",
+  "name": "Ana López Sofii12",
   "subject": "Física Avanzada",
-  "email": "ana.lopez.actualizada@uniguajira.edu.co",
+  "email": "ana.lopez.actualizada12@uniguajira.edu.co",
   "phone": "3007654321",
   "registration_date": "2025-10-16T00:00:00.000Z",
   "status": "ACTIVE"
 }
 
 ### Eliminar un profesor físicamente (CON token)
-DELETE {{baseUrl}}/api/teachers/1
+DELETE {{baseUrl}}/api/teachers/13
 Authorization: Bearer {{token}}
 
 ### Eliminar un profesor lógicamente (CON token)
-DELETE {{baseUrl}}/api/teachers/1/logic
+DELETE {{baseUrl}}/api/teachers/8/logic
 Authorization: Bearer {{token}}

@@ -16,8 +16,8 @@ POST {{baseUrl}}/api/resourceRoles/public
 Content-Type: application/json
 
 {
-  "resource_id": 0,
-  "role_id": 0,
+  "resource_id": 9,
+  "role_id": 2,
   "is_active": "ACTIVE"
 }
 

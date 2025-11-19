@@ -8,7 +8,7 @@ export class AssessmentController {
   public async getAllAssessments(req: Request, res: Response) {
     try {
       const assessments: AssessmentI[] = await Assessment.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ assessments });
+      res.status(200).json( assessments );
     } catch (error) {
       res.status(500).json({ error: "Error fetching assessments" });
     }
@@ -18,7 +18,7 @@ export class AssessmentController {
     try {
       const { id: pk } = req.params;
       const assessment = await Assessment.findOne({ where: { id: pk, status: "ACTIVE" } });
-      if (assessment) res.status(200).json({ assessment });
+      if (assessment) res.status(200).json( assessment );
       else res.status(404).json({ error: "Assessment not found or inactive" });
     } catch (error) {
       res.status(500).json({ error: "Error fetching assessment" });

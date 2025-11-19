@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzYwNTY3ODE0LCJleHAiOjE3NjA1Njg0MTR9.ZIvNMyRc0RMyvA7xE8FbTHnkidZPmLQDg0pmx8Ct888
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 GET {{baseUrl}}/api/posts/public
 
 ### Obtener un post por ID (SIN token)
-GET {{baseUrl}}/api/posts/public/1
+GET {{baseUrl}}/api/posts/public/10
 
 ### Crear un nuevo post (SIN token)
 POST {{baseUrl}}/api/posts/public
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un post (SIN token)
-PATCH {{baseUrl}}/api/posts/public/1
+PATCH {{baseUrl}}/api/posts/public/102
 Content-Type: application/json
 
 {
@@ -36,10 +36,10 @@ Content-Type: application/json
 }
 
 ### Eliminar un post físicamente (SIN token)
-DELETE {{baseUrl}}/api/posts/public/1
+DELETE {{baseUrl}}/api/posts/public/5
 
 ### Eliminar un post lógicamente (SIN token)
-DELETE {{baseUrl}}/api/posts/public/1/logic
+DELETE {{baseUrl}}/api/posts/public/10/logic
 
 ### ================== RUTAS CON AUTENTICACIÓN ==================
 
@@ -82,5 +82,5 @@ DELETE {{baseUrl}}/api/posts/1
 Authorization: Bearer {{token}}
 
 ### Eliminar un post lógicamente (CON token)
-DELETE {{baseUrl}}/api/posts/1/logic
+DELETE {{baseUrl}}/api/posts/4/logic
 Authorization: Bearer {{token}}

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTY2Njk5LCJleHAiOjE3NjA1NjcyOTl9.lsTb2mzmVMq8VRbyDOzK4EeIpA13AB-mzDzgoEuNT5s
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 GET {{baseUrl}}/api/modules/public
 
 ### Obtener un módulo por ID (SIN token)
-GET {{baseUrl}}/api/modules/public/1
+GET {{baseUrl}}/api/modules/public/30
 
 ### Crear un nuevo módulo (SIN token)
 POST {{baseUrl}}/api/modules/public
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un módulo (SIN token)
-PATCH {{baseUrl}}/api/modules/public/1
+PATCH {{baseUrl}}/api/modules/public/32
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ### Eliminar un módulo físicamente (SIN token)
-DELETE {{baseUrl}}/api/modules/public/1
+DELETE {{baseUrl}}/api/modules/public/32
 
 ### Eliminar un módulo lógicamente (SIN token)
 DELETE {{baseUrl}}/api/modules/public/1/logic
@@ -46,7 +46,7 @@ GET {{baseUrl}}/api/modules
 Authorization: Bearer {{token}}
 
 ### Obtener un módulo por ID (CON token)
-GET {{baseUrl}}/api/modules/1
+GET {{baseUrl}}/api/modules/3
 Authorization: Bearer {{token}}
 
 ### Crear un nuevo módulo (CON token)
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un módulo (CON token)
-PATCH {{baseUrl}}/api/modules/31
+PATCH {{baseUrl}}/api/modules/33
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,9 +74,9 @@ Content-Type: application/json
 }
 
 ### Eliminar un módulo físicamente (CON token)
-DELETE {{baseUrl}}/api/modules/1
+DELETE {{baseUrl}}/api/modules/33
 Authorization: Bearer {{token}}
 
 ### Eliminar un módulo lógicamente (CON token)
-DELETE {{baseUrl}}/api/modules/1/logic
+DELETE {{baseUrl}}/api/modules/5/logic
 Authorization: Bearer {{token}}

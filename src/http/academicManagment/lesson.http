@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTY2Njk5LCJleHAiOjE3NjA1NjcyOTl9.lsTb2mzmVMq8VRbyDOzK4EeIpA13AB-mzDzgoEuNT5s
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 GET {{baseUrl}}/api/lessons/public
 
 ### Obtener una lección por ID (SIN token)
-GET {{baseUrl}}/api/lessons/public/1
+GET {{baseUrl}}/api/lessons/public/3
 
 ### Crear una nueva lección (SIN token)
 POST {{baseUrl}}/api/lessons/public
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Actualizar una lección (SIN token)
-PATCH {{baseUrl}}/api/lessons/public/1
+PATCH {{baseUrl}}/api/lessons/public/2
 Content-Type: application/json
 
 {
@@ -34,10 +34,10 @@ Content-Type: application/json
 }
 
 ### Eliminar una lección físicamente (SIN token)
-DELETE {{baseUrl}}/api/lessons/public/1
+DELETE {{baseUrl}}/api/lessons/public/2
 
 ### Eliminar una lección lógicamente (SIN token)
-DELETE {{baseUrl}}/api/lessons/public/1/logic
+DELETE {{baseUrl}}/api/lessons/public/3/logic
 
 ### ================== RUTAS CON AUTENTICACIÓN ==================
 
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ### Actualizar una lección (CON token)
-PATCH {{baseUrl}}/api/lessons/151
+PATCH {{baseUrl}}/api/lessons/152
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,7 +74,7 @@ Content-Type: application/json
 }
 
 ### Eliminar una lección físicamente (CON token)
-DELETE {{baseUrl}}/api/lessons/1
+DELETE {{baseUrl}}/api/lessons/152
 Authorization: Bearer {{token}}
 
 ### Eliminar una lección lógicamente (CON token)

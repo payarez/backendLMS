@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@token = 
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 GET {{baseUrl}}/api/attempts/public
 
 ### Obtener un intento por ID (SIN token)
-GET {{baseUrl}}/api/attempts/public/1
+GET {{baseUrl}}/api/attempts/public/2
 
 ### Crear un nuevo intento (SIN token)
 POST {{baseUrl}}/api/attempts/public
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un intento (SIN token)
-PATCH {{baseUrl}}/api/attempts/public/1
+PATCH {{baseUrl}}/api/attempts/public/303
 Content-Type: application/json
 
 {
@@ -36,10 +36,10 @@ Content-Type: application/json
 }
 
 ### Eliminar un intento físicamente (SIN token)
-DELETE {{baseUrl}}/api/attempts/public/1
+DELETE {{baseUrl}}/api/attempts/public/303
 
 ### Eliminar un intento lógicamente (SIN token)
-DELETE {{baseUrl}}/api/attempts/public/1/logic
+DELETE {{baseUrl}}/api/attempts/public/2/logic
 
 ### ================== RUTAS CON AUTENTICACIÓN ==================
 
@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un intento (CON token)
-PATCH {{baseUrl}}/api/attempts/301
+PATCH {{baseUrl}}/api/attempts/302
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 
 ### Eliminar un intento físicamente (CON token)
-DELETE {{baseUrl}}/api/attempts/1
+DELETE {{baseUrl}}/api/attempts/302
 Authorization: Bearer {{token}}
 
 ### Eliminar un intento lógicamente (CON token)

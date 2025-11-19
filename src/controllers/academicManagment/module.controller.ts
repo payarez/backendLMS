@@ -7,7 +7,7 @@ export class ModuleController {
   public async getAllModules(req: Request, res: Response) {
     try {
       const modules: ModuleI[] = await Module.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ modules });
+      res.status(200).json( modules );
     } catch (error) {
       res.status(500).json({ error: "Error fetching modules" });
     }

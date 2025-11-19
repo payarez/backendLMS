@@ -7,7 +7,7 @@ export class StudentController {
   public async getAllStudents(req: Request, res: Response) {
     try {
       const students: StudentI[] = await Student.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ students });
+      res.status(200).json( students );
     } catch (error) {
       res.status(500).json({ error: "Error fetching students" });
     }

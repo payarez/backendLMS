@@ -10,8 +10,8 @@ POST {{baseUrl}}/api/register
 Content-Type: application/json
 
 {
-  "username": "payarez",
-  "email": "ep@goat.com",
+  "username": "prueba",
+  "email": "prueba@mail.com",
   "password": "12345678",
   "is_active": "ACTIVE",
   "avatar": "avatar.jpg"
@@ -22,7 +22,7 @@ POST {{baseUrl}}/api/login
 Content-Type: application/json
 
 {
-  "email": "ep@goat.com",
+  "email": "prueba@mail.com",
   "password": "12345678"
 }
 

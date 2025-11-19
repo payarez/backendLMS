@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5MzU4LCJleHAiOjE3NjAzMjk5NTh9.VhM6XVjOKMK2cypN00byo3hDDXDYEddqBJlYc_zHwL0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTY2MDkwLCJleHAiOjE3NjA1NjY2OTB9.Gw34y-67Jqg3vV68aZkz8So0qtGCSXiX19zUTUAc8bI
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -16,19 +16,19 @@ POST {{baseUrl}}/api/assessments/public
 Content-Type: application/json
 
 {
-  "grade": 90,
-  "feedback": "Buen desempeño en el parcial",
+  "grade": 99,
+  "feedback": "Excelente desempeño en el parcial",
   "date": "2025-10-15T10:00:00.000Z",
   "status": "ACTIVE",
   "submissionId": 1
 }
 
 ### Actualizar una evaluación (SIN token)
-PATCH {{baseUrl}}/api/assessments/public/1
+PATCH {{baseUrl}}/api/assessments/public/452
 Content-Type: application/json
 
 {
-  "grade": 95,
+  "grade": 80,
   "feedback": "Excelente mejora en el parcial",
   "date": "2025-10-20T10:00:00.000Z",
   "status": "ACTIVE",
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### Eliminar una evaluación físicamente (SIN token)
-DELETE {{baseUrl}}/api/assessments/public/1
+DELETE {{baseUrl}}/api/assessments/public/452
 
 ### Eliminar una evaluación lógicamente (SIN token)
 DELETE {{baseUrl}}/api/assessments/public/1/logic
@@ -48,7 +48,7 @@ GET {{baseUrl}}/api/assessments
 Authorization: Bearer {{token}}
 
 ### Obtener una evaluación por ID (CON token)
-GET {{baseUrl}}/api/assessments/312
+GET {{baseUrl}}/api/assessments/2
 Authorization: Bearer {{token}}
 
 ### Crear una nueva evaluación (CON token)
@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Actualizar una evaluación (CON token)
-PATCH {{baseUrl}}/api/assessments/451
+PATCH {{baseUrl}}/api/assessments/453
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -78,9 +78,9 @@ Content-Type: application/json
 }
 
 ### Eliminar una evaluación físicamente (CON token)
-DELETE {{baseUrl}}/api/assessments/1
+DELETE {{baseUrl}}/api/assessments/453
 Authorization: Bearer {{token}}
 
 ### Eliminar una evaluación lógicamente (CON token)
-DELETE {{baseUrl}}/api/assessments/1/logic
+DELETE {{baseUrl}}/api/assessments/2/logic
 Authorization: Bearer {{token}}

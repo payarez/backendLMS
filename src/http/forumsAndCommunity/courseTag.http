@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTY3MzEzLCJleHAiOjE3NjA1Njc5MTN9.PLKrZ_jqjfiq3cEN4B9BwyUrbYRRdN_EMKyyAeew8a8
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 GET {{baseUrl}}/api/course-tags/public
 
 ### Obtener un course-tag por ID (SIN token)
-GET {{baseUrl}}/api/course-tags/public/1
+GET {{baseUrl}}/api/course-tags/public/5
 
 ### Crear un nuevo course-tag (SIN token)
 POST {{baseUrl}}/api/course-tags/public
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ### Actualizar un course-tag (SIN token)
-PATCH {{baseUrl}}/api/course-tags/public/1
+PATCH {{baseUrl}}/api/course-tags/public/23
 Content-Type: application/json
 
 {
@@ -32,10 +32,10 @@ Content-Type: application/json
 }
 
 ### Eliminar un course-tag físicamente (SIN token)
-DELETE {{baseUrl}}/api/course-tags/public/1
+DELETE {{baseUrl}}/api/course-tags/public/10
 
 ### Eliminar un course-tag lógicamente (SIN token)
-DELETE {{baseUrl}}/api/course-tags/public/1/logic
+DELETE {{baseUrl}}/api/course-tags/public/11/logic
 
 ### ================== RUTAS CON AUTENTICACIÓN ==================
 
@@ -74,5 +74,5 @@ DELETE {{baseUrl}}/api/course-tags/1
 Authorization: Bearer {{token}}
 
 ### Eliminar un course-tag lógicamente (CON token)
-DELETE {{baseUrl}}/api/course-tags/1/logic
+DELETE {{baseUrl}}/api/course-tags/3/logic
 Authorization: Bearer {{token}}

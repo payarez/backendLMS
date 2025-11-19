@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI4Njc0LCJleHAiOjE3NjAzMjkyNzR9.GbPBdXL8tnPO5XGKZbYXAAyNRqCZvymdSWE6HheuZhU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzYwNTY4MDIyLCJleHAiOjE3NjA1Njg2MjJ9.DFlyOcOuPgCxva9JlYxoAeSA3US0LUYSJL82kTbf38o
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================

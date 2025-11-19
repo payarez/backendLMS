@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwMzI5ODgxLCJleHAiOjE3NjAzMzA0ODF9.hGurV8yLYImrxdxkbn4AujJCY1rA7oGXEDKY2x4i0aE
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYwNTY3MzEzLCJleHAiOjE3NjA1Njc5MTN9.PLKrZ_jqjfiq3cEN4B9BwyUrbYRRdN_EMKyyAeew8a8
 @baseUrl = http://localhost:3000
 
 ### ================== RUTAS SIN AUTENTICACIÓN ==================
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ### Actualizar una inscripción (CON token)
-PATCH {{baseUrl}}/api/enrollments/1
+PATCH {{baseUrl}}/api/enrollments/62
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,9 +74,9 @@ Content-Type: application/json
 }
 
 ### Eliminar una inscripción físicamente (CON token)
-DELETE {{baseUrl}}/api/enrollments/1
+DELETE {{baseUrl}}/api/enrollments/10
 Authorization: Bearer {{token}}
 
 ### Eliminar una inscripción lógicamente (CON token)
-DELETE {{baseUrl}}/api/enrollments/1/logic
+DELETE {{baseUrl}}/api/enrollments/20/logic
 Authorization: Bearer {{token}}

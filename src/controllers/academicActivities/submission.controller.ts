@@ -7,7 +7,7 @@ export class SubmissionController {
   public async getAllSubmissions(req: Request, res: Response) {
     try {
       const submissions: SubmissionI[] = await Submission.findAll({ where: { status: "ACTIVE" } });
-      res.status(200).json({ submissions });
+      res.status(200).json( submissions );
     } catch (error) {
       res.status(500).json({ error: "Error fetching submissions" });
     }
